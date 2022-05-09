@@ -47,7 +47,7 @@ Let $C^{R,v,h_V,id}$ be the following Boolean circuit with one output gate.
 $C^{R,v,h_v,id}$ depends on the constants $R,v,h_V,id$, takes as input a pair $w=(p,sk_V)$ and outputs $1$ if and only if *all* the following conditions are verified:
 1. The string $p$ is a Merkle-path from $R$ to $pk_V$.
 2. $sk_V$ is a secret-key corresponding to the public-key $pk_V$. 
-3. $h_v=H(sk_V,id)$.
+3. $h_v=H(sk_V,v,id)$.
 
 Note that the values $R,v,h_V,id$, and thus $C^{R,v,h_v,id}$, will represent public information while $w$ is only known to $V$. The voter $V$ uses the SNARK prover to compute a proof $\pi_V$ of the fact that $C^{R,v,h_v,id}$ is satisfied by witness $w$.
 
