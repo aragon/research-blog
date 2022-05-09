@@ -66,7 +66,7 @@ Moreover, if two ballots $B_1=(v_1,h_1,\pi_1)$ and $B_2=(v_2,h_2,\pi_2)$ with $h
 **Vote independence.** The previous solution suffers from the issue that the votes appear on the blockchain as soon as each voter casts her own preference. In this case, at time of casting a ballot, a voter could be affected by the current *partial* tally of the election.
 This issue can be solved by having the voters to encrypt their own preferences under a public-key of a public-key encryption scheme whose secret-key is shared among a set of authorities. Here, we need to assume that not all authorities collude together to break the vote independence property. Note however that, even if all such authorities colluded together, they could not break the anonymity of the votes. Other mechanisms can be employed to mitigate this issue.
 
-**Security.** For the sake of this post, we will not analyze the security in depth. We briefly mention that the security properties of the SNARK guarantee that a proof published on the blockchain does not leak the witness. This means that the Merkle path from the root to the voter-s public-key is  hidden, thus the identity of the voter (among the many voters eligible to vote) is hideen as well. 
+**Security.** For the sake of this post, we will not analyze the security in depth. We briefly mention that the security properties of the SNARK guarantee that a proof published on the blockchain does not leak the witness. This means that the Merkle path from the root to the voter's public-key is  hidden, thus the identity of the voter (among the many voters eligible to vote) is hidden as well. 
 Similarly, if a SNARK proof is verified, then it is possible to extract a secret-key corresponding to one of the public-keys published in the census tree, and by the fact that it is hard to extract secret-keys from public-keys, eligibility follows.
 
 ## Adding delegation
@@ -75,9 +75,9 @@ When Alice wants to delegate to Bob a token for predicate $f$, Alice does the fo
 
 Alice generates a new pair of public and secret keys $(pk',sk')$ for the digital signature scheme (the same used to create the public- and secret- keys of the census Merkle Tree). Observe that the generic SNARK-based anonymous e-voting scheme we described before does not use signatures directly, but still the Merkle Tree consists of public-keys of a digital signature scheme.
 
-Alice signs the string $(vk'||f)$ with secret-key $sk$, that is Alice generates the signature
+Alice signs the string $(pk'||f)$ with secret-key $sk$, that is Alice generates the signature
 
-$$\sigma=Sign(sk,(vk'||f))$$
+$$\sigma=Sign(sk,(pk'||f))$$
 
 Finally, Alice sets as token $T_f$ the following:
 
@@ -85,9 +85,9 @@ $$T_f= (sk', \sigma).$$
 
 Alice can pass the token $T_f$ to Bob and Bob can use it to vote for any option satisfying $f(v,id)=1$ where $id$ is the identifier of the election.
 
-The circuit for the SNARK proof is changed as follows. The public statement consists of the vote $v$, the nullifier but also the function $f$. The witness input by Bob consists of the token $T_f$ and a path in the Merle Tree to $vk$.
+The circuit for the SNARK proof is changed as follows. The public statement consists of the vote $v$, the nullifier but also the function $f$. The witness input by Bob consists of the token $T_f$ and a path in the Merle Tree to $pk$.
 
-The circuit checks that the path points to $vk$ and that $\sigma$ is a valid signature with respect to $vk$ of message $vk'||f$ and that $f(v,id)=1$ (where $id$ is the identifier of the election). Moreover, the circuit does the usual check on the nullifier to prevent double voting but the secret-key used to compute the nullifier is $sk'$.
+The circuit checks that the path points to $vk$ and that $\sigma$ is a valid signature with respect to $vk$ of message $pk'||f$ and that $f(v,id)=1$ (where $id$ is the identifier of the election). Moreover, the circuit does the usual check on the nullifier to prevent double voting but the secret-key used to compute the nullifier is $sk'$.
 
 Note that if Alice wants to vote, she can vote by simulating this delegation to herself.
 
