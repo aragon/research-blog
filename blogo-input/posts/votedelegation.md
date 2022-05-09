@@ -15,7 +15,7 @@ Anonymous e-voting systems, often based on SNARK proof systems, provide the foll
 One example of such voting schemes based on SNARK proofs is [Vocdoni](https://aragon.org/vocdoni), developed by Aragon Labs.
 
 ## Delegation
-We would like to add a new feature, namely *delegation.* This means that a *delegator* can issue to a *delegate* a *token* $T_f$ relative a predicate $f$ so that the delegatee will be able to only submit a vote $v$ for the election identified by the identifier $id$ iff $f(v,id)=1$.
+We would like to add a new feature, namely *delegation.* This means that a *delegator* can issue to a *delegate* a *token* $T_f$ relative a predicate $f$ so that the delegate will be able to only submit a vote $v$ for the election identified by the identifier $id$ iff $f(v,id)=1$.
 
 Observe that in this framework we can capture all delegation mechanisms. For instance, the predicate $f$ can just check that the identifier $id$ corresponds to the identifiers of the elections running in 2022 and 2023 or can check that $v$ belongs to a subset of options.
 
@@ -100,8 +100,8 @@ The public statement will include a bit $b$ indicating whether the vote is a dir
 
 Now, if there are two nullifiers in the blockchain, one of which with the bit set to $1$ and one with the bit set to $0$, only the one with bit set to $0$ will be counted to indicated that delegated vote has to be discarded to give priority to direct vote.
 
-#### Distributing a token to multiple delegatees.
-Notice that the mechanism allows distribution of a token to multiple delegatees. Then, depending on the policy, only one vote submitted by these delegatees will be counted. It can be thought like delegating the trust to anyone in a given group and at the same time trying to increase the chance that one of them will actually submit a vote.
+#### Distributing a token to multiple delegates.
+Notice that the mechanism allows distribution of a token to multiple delegates. Then, depending on the policy, only one vote submitted by these delegates will be counted. It can be thought like delegating the trust to anyone in a given group and at the same time trying to increase the chance that one of them will actually submit a vote.
 
 ## Conclusion 
 The idea of delegating voting capabilities traces back to Charles Dodgson (more commonly known by his pseudonym Lewis Carroll), the author of the novel Alice in Wonderland, who first envisioned  the ability to transfer votes; in modern times this concept has been named Liquid Democracy. In recent years, delegation of voting rights has been proposed as a potential solution to several problems in [coin voting](https://vitalik.ca/general/2021/08/16/voting3.html?msclkid=48c0f9a9ceef11ec994d3e607dcc1d8c).
