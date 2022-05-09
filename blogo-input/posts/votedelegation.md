@@ -100,7 +100,7 @@ The public statement will include a bit $b$ indicating whether the vote is a dir
 
 Now, if there are two nullifiers in the blockchain, one of which with the bit set to $1$ and one with the bit set to $0$, only the one with bit set to $0$ will be counted to indicated that delegated vote has to be discarded to give priority to direct vote.
 
-#### Distributing a token to multiple delegatees.
+#### Distributing a token to multiple delegates.
 Notice that the mechanism allows distribution of a token to multiple delegatees. Then, depending on the policy, only one vote submitted by these delegatees will be counted. It can be thought like delegating the trust to anyone in a given group and at the same time trying to increase the chance that one of them will actually submit a vote.
 
 ## Conclusion 
