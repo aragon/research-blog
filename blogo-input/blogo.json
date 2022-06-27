@@ -1,5 +1,5 @@
 {
-  "title": "Aragon Research - blog",
+  "title": "Aragon ZK Research - blog",
   "relativePath": "",
   "absoluteUrl": "https://research.aragon.com",
   "outputDir": "docs",
@@ -33,6 +33,8 @@
   "copyRaw": [
     "css",
     "img",
-    "js"
+    "js",
+    "about",
+    "docs"
   ]
 }
