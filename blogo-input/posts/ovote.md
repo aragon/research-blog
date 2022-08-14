@@ -7,6 +7,13 @@ We present **OVOTE (v0.5): Offchain Voting with Onchain Trustless Execution**.
 **TL;DR:** OVOTE is a L2 design for voting using validity-proofs (zkSNARK proofs), which is similar to zkRollups. The main idea is that the **votes are aggregated offchain, and proved onchain through a zkSNARK proof**, resulting in constant gas costs while scaling up to thousands of voters through a single Ethereum transaction.
 We present the [technical document](https://research.aragon.org/docs/ovote) together with the implementation of the [zk circuits](https://github.com/aragonzkresearch/ovote/tree/main/circuits), [smart contracts](https://github.com/aragonzkresearch/ovote/tree/main/contracts) and [backend node](https://github.com/aragonzkresearch/ovote-node).
 
+
+<div style="text-align:center; margin:40px;">
+<a href="https://research.aragon.org/docs/ovote" target="_blank" class="alert alert-primary" role="alert">
+  <i class="bi bi-file-earmark-text" style="font-size: 1.5rem;"></i> OVOTE technical document
+</a>
+</div>
+
 ## Context
 This is a project that we started 4 months ago in the [Aragon ZK Research](https://research.aragon.org) guild, continuing the ideas that we've been discussing in [Vocdoni](https://vocdoni.io) for the past year, with the aim to be a contribution to the [Aragon](https://aragon.org) ecosystem.
 
